@@ -25,7 +25,7 @@ tests = {
 }
 
 for _,test in ipairs(tests) do
-    local result, reason = acceptor(test, 100)
+    local result, reason = acceptor(test)
     local message = result and 'accepted' or 'not accepted'
     print(test .. ' was ' .. message .. ': ' .. reason)
 end
