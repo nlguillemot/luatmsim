@@ -18,14 +18,14 @@ delta = {
     { { 'z', '#' } , { 'h', '#' } }
 }
 
-acceptor = tmsim.NewAcceptor(q0)
+acceptor = tmsim.NewAcceptor(q0, delta)
 
 tests = {
     '001'
 }
 
 for _,test in ipairs(tests) do
-    local result = acceptor(test)
+    local result, reason = acceptor(test, 100)
     local message = result and 'accepted' or 'not accepted'
-    print(test .. ' was ' .. message)
+    print(test .. ' was ' .. message .. ': ' .. reason)
 end
